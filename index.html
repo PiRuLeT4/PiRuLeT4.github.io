@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Santiago Tirado Anula — CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #15171E;
+    --paper: #F6F6F3;
+    --paper-raised: #FFFFFF;
+    --accent: #3451E6;
+    --accent-soft: #E7EAFB;
+    --grey: #5B5E68;
+    --grey-light: #8A8D96;
+    --rule: #DDDDD6;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #ECECE6;
+      --paper: #15171C;
+      --paper-raised: #1B1E25;
+      --accent: #7C92FF;
+      --accent-soft: #232A49;
+      --grey: #A6A9B2;
+      --grey-light: #74777F;
+      --rule: #2B2E36;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #ECECE6;
+    --paper: #15171C;
+    --paper-raised: #1B1E25;
+    --accent: #7C92FF;
+    --accent-soft: #232A49;
+    --grey: #A6A9B2;
+    --grey-light: #74777F;
+    --rule: #2B2E36;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 64px 28px 96px;
+  }
+
+  header.cv-header {
+    margin-bottom: 52px;
+  }
+
+  h1.name {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(2.4rem, 6vw, 3.4rem);
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+    margin: 0 0 6px;
+    color: var(--ink);
+  }
+
+  .role-line {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.92rem;
+    color: var(--accent);
+    margin: 0 0 22px;
+  }
+
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 18px;
+    font-size: 0.92rem;
+    color: var(--grey);
+  }
+  .contact-row a { color: var(--grey); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .contact-row a:hover { color: var(--accent); border-color: var(--accent); }
+
+  .summary {
+    margin-top: 26px;
+    max-width: 62ch;
+    color: var(--ink);
+    font-size: 1.02rem;
+  }
+
+  section.block { margin-top: 48px; }
+
+  h2.section-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--grey-light);
+    letter-spacing: 0.02em;
+    margin: 0 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .entry { margin-bottom: 30px; }
+  .entry:last-child { margin-bottom: 0; }
+
+  .entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+  }
+
+  .entry-title {
+    font-weight: 600;
+    font-size: 1.04rem;
+    color: var(--ink);
+  }
+  .entry-org { font-weight: 400; color: var(--grey); }
+
+  .entry-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.82rem;
+    color: var(--grey-light);
+    white-space: nowrap;
+  }
+
+  .entry-sub {
+    font-size: 0.88rem;
+    color: var(--accent);
+    font-family: 'IBM Plex Mono', monospace;
+    margin: 2px 0 10px;
+  }
+
+  ul.bullets {
+    margin: 10px 0 0;
+    padding-left: 20px;
+  }
+  ul.bullets li {
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  ul.bullets li::marker { color: var(--accent); }
+
+  .proj-links {
+    margin-top: 6px;
+    display: flex;
+    gap: 14px;
+    font-size: 0.86rem;
+  }
+  .proj-links a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+  }
+
+  .mini-projects .entry-title { font-size: 0.98rem; }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    row-gap: 14px;
+    column-gap: 20px;
+    font-size: 0.95rem;
+  }
+  .skills-grid dt {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--grey-light);
+    padding-top: 2px;
+  }
+  .skills-grid dd {
+    margin: 0;
+    color: var(--ink);
+  }
+
+  @media (max-width: 560px) {
+    .skills-grid { grid-template-columns: 1fr; row-gap: 4px; }
+    .skills-grid dt { margin-top: 10px; }
+  }
+
+  footer.cv-footer {
+    margin-top: 64px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+    font-size: 0.8rem;
+    color: var(--grey-light);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="cv-header">
+    <h1 class="name">Santiago Tirado Anula</h1>
+    <p class="role-line">Back-End Developer · IA en entornos 3D/XR</p>
+    <div class="contact-row">
+      <span>Madrid, España</span>
+      <a href="tel:+34717703481">+34 717 703 481</a>
+      <a href="mailto:stiradoanula@gmail.com">stiradoanula@gmail.com</a>
+      <a href="https://www.linkedin.com/in/santiago-tirado-anula/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/PiRuLeT4" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <p class="summary">
+      Grado en Ingeniería en Sistemas Audiovisuales y Multimedia con experiencia en desarrollo de software.
+      Experiencia integrando IA en entornos 3D/XR y optimizando arquitecturas escalables. Capaz de autogestión
+      eficaz en proyectos independientes, con experiencia en varios lenguajes, programación agéntica,
+      herramientas y plataformas.
+    </p>
+  </header>
+
+  <section class="block">
+    <h2 class="section-title">experiencia</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Back-End Developer (Prácticas) <span class="entry-org">— Ábaco Digital</span></span>
+        <span class="entry-date">sept. 2025 – ene. 2026</span>
+      </div>
+      <ul class="bullets">
+        <li>Desarrollé módulos para un ERP interno a medida utilizando Node.js y Express, agilizando la gestión interna.</li>
+        <li>Implementé una arquitectura MVC modular y desacoplada, optimizando la mantenibilidad del código y mejorando los tiempos de respuesta de los endpoints.</li>
+        <li>Ejecuté la migración de 700 registros de bases de datos heredadas hacia Factura Directa (software de facturación en la nube).</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2 class="section-title">proyectos</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">ViZzo</span>
+        <span class="entry-date">Trabajo Fin de Grado</span>
+      </div>
+      <p class="entry-sub">Plataforma Full-Stack de Análisis Estático y Visualización 3D/XR de Software</p>
+      <p style="color:var(--grey); font-size:0.9rem; margin: 0 0 8px;">Python, Django, PostgreSQL, WebXR (A-Frame, BabiaXR), Lizard, PyDriller, LLMs, Docker</p>
+      <ul class="bullets">
+        <li>Diseñé e implementé un pipeline de análisis estático y minería de repositorios (GitHub/GitLab) integrando Lizard (AST multihilo) y PyDriller con algoritmos de muestreo para bases de código masivas.</li>
+        <li>Desarrollé una experiencia inmersiva con A-Frame y BabiaXR renderizando hasta 8 dashboards interactivos.</li>
+        <li>Integré modelos LLM (DeepSeek, Grok, OpenAI) para la inferencia y distribución dinámica de dashboards según la topología del repositorio, generando diagnósticos arquitectónicos automáticos y narraciones por voz sintetizada en tiempo real (TTS-1).</li>
+        <li>Construí una arquitectura backend desacoplada en Django con persistencia en PostgreSQL, sistema de caché inteligente y despliegue con Docker y Docker Compose (Gunicorn + WhiteNoise).</li>
+        <li>Implementé una suite de pruebas de 39 tests con Django TestCase y un pipeline de CI/CD en GitHub Actions que despliega automáticamente vía SSH sobre un VPS con Docker Compose.</li>
+      </ul>
+      <div class="proj-links">
+        <a href="https://github.com/PiRuLeT4/Vizzo" target="_blank" rel="noopener">Repositorio</a>
+        <a href="https://vizzovr.com/" target="_blank" rel="noopener">Demo en vivo</a>
+      </div>
+    </div>
+
+    <div class="entry mini-projects" style="margin-top:38px;">
+      <p class="entry-sub" style="margin-bottom:14px;">Proyectos académicos</p>
+      <ul class="bullets">
+        <li><span class="entry-title">Sistema de transmisión de vídeo</span> — construido en Python con WebRTC, aiortc y protocolos de transmisión y señalización como RTP y SDP. <a href="https://github.com/PiRuLeT4/University-Projects/tree/main/PTAVI" style="color:var(--accent);">Repositorio</a></li>
+        <li><span class="entry-title">Juego de realidad virtual en navegador</span> — JavaScript y A-Frame. <a href="https://github.com/PiRuLeT4/University-Projects/tree/main/GRAFICOS%203D/docs" style="color:var(--accent);">Repositorio</a></li>
+        <li><span class="entry-title">Juego de mesa multijugador</span> — Python, con sockets, hilos y lógica estructurada. <a href="https://github.com/PiRuLeT4/University-Projects/tree/main/TACTICAL%20BATTLE" style="color:var(--accent);">Repositorio</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2 class="section-title">educación</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Universidad Rey Juan Carlos</span>
+        <span class="entry-date">2021–2026</span>
+      </div>
+      <p class="entry-sub">Grado en Ingeniería en Sistemas Audiovisuales y Multimedia · Madrid, España</p>
+      <p style="color:var(--grey); font-size:0.92rem; margin-top: 8px;">
+        Asignaturas relevantes: Programación, Sistemas telemáticos, Arquitectura de Internet, Tratamiento digital de la imagen.
+      </p>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2 class="section-title">habilidades técnicas</h2>
+    <dl class="skills-grid">
+      <dt>lenguajes</dt>
+      <dd>Python, JavaScript, HTML, CSS, SQL</dd>
+      <dt>frameworks</dt>
+      <dd>Django, Flask, Node.js, Next.js, Express, A-Frame, BabiaXR</dd>
+      <dt>bases de datos</dt>
+      <dd>PostgreSQL, MySQL</dd>
+      <dt>testing &amp; ci/cd</dt>
+      <dd>Django TestCase, GitHub Actions, despliegue automatizado SSH + Docker</dd>
+      <dt>despliegue</dt>
+      <dd>Docker, Docker Compose</dd>
+      <dt>herramientas</dt>
+      <dd>Git, GitHub, GitLab, Linux, Wireshark, MATLAB</dd>
+      <dt>herramientas de IA</dt>
+      <dd>Google Antigravity, OpenCode, LM Studio</dd>
+      <dt>idiomas</dt>
+      <dd>Español nativo · Inglés C1 Cambridge</dd>
+    </dl>
+  </section>
+
+  <section class="block">
+    <h2 class="section-title">voluntariado</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Hogar San Martín de Tours</span>
+        <span class="entry-date">sept. 2026</span>
+      </div>
+      <p style="color:var(--grey); margin: 4px 0 0;">Apoyo y acompañamiento a personas con discapacidad.</p>
+    </div>
+  </section>
+
+  <footer class="cv-footer">
+    actualizado · octubre 2026
+  </footer>
+
+</div>
+</body>
+</html>
